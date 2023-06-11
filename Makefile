@@ -14,3 +14,6 @@ publish: # publish without PyPI
 
 package-install:
 	python3 -m pip install --user --force-reinstall dist/*.whl
+
+lint: # run_linter
+	poetry run flake8 brain_games
