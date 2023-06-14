@@ -1,5 +1,4 @@
 from brain_games.games.common import question
-from brain_games.games.nod_2_num import nod
 from random import randint
 
 import prompt
@@ -9,13 +8,21 @@ def dialog(name, count=3):
 
         while count:
 
+            progression_numbers = [randint(0, 20)]
+            diff = randint(2, 10)
+            len_progression = randint(6, 10)
+            random_position_unshow = randint(0, len_progression)
             
             # brain
-            numbers = [randint(0, 100) for _ in range(2)]
             
-            question(f'{numbers[0]} {numbers[1]}')
+            for i in range(len_progression):
+                progression_numbers.append(progression_numbers[-1] + diff)
+            
+            correct_answer = progression_numbers[random_position_unshow]
+            progression_numbers[random_position_unshow] = '..'
+            
+            question(' '.join([str(n) for n in progression_numbers]))
 
-            correct_answer = nod(numbers[0], numbers[1])
             user_answer = prompt.integer('Your answer: ')
 
             # проверка ответа
