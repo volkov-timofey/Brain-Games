@@ -19,9 +19,9 @@ def dialog(name: str, count: int = config.count) -> None:
         numbers = [randint(0, config.max_value_calc) for _ in range(2)]
 
         actions = {
-                  '*': numbers[0] * numbers[1],
-                  '+': numbers[0] + numbers[1],
-                  '-': numbers[0] - numbers[1],
+            '*': numbers[0] * numbers[1],
+            '+': numbers[0] + numbers[1],
+            '-': numbers[0] - numbers[1],
         }
 
         punkt = choice('+-*')
