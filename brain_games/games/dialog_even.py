@@ -23,10 +23,10 @@ def dialog(name: str, count: int = config.count) -> None:
         user_answer = prompt.string('Your answer: ')
 
         result_verification = verification(
-                                            name,
-                                            correct_answer,
-                                            user_answer
-                                            )
+            name,
+            correct_answer,
+            user_answer
+        )
 
         if result_verification:
             break

@@ -26,10 +26,10 @@ def dialog(name: str, count: int = config.count) -> None:
 
         # проверка ответа
         result_verification = verification(
-                                            name,
-                                            correct_answer,
-                                            user_answer
-                                            )
+            name,
+            correct_answer,
+            user_answer
+        )
 
         if result_verification:
             break
