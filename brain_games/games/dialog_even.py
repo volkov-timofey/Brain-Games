@@ -1,32 +1,37 @@
 from brain_games.games.common import question
+from brain_games.games.solution_verification import verification
+import brain_games.config as config
+
 from random import randint
+
 import prompt
 
 
-def dialog(name, count=3):
+def dialog(name: str, count: int = config.count) -> None:
+    """
+    Function for dialog with player
+    in even play
+    """
 
-        while count:
+    while count:
 
-            number = randint(0, 500)
+        number = randint(0, config.max_value_even)
 
-            question(number)
+        question(number)
 
-            correct_answer = "yes" if number % 2 == 0 else "no"
-            user_answer = prompt.string('Your answer: ')
+        correct_answer = "yes" if number % 2 == 0 else "no"
+        user_answer = prompt.string('Your answer: ')
 
-            flag = correct_answer == user_answer
+        result_verification = verification(
+                                            name,
+                                            correct_answer,
+                                            user_answer
+                                            )
 
-            if flag:
-                print("Correct!")
-                count -= 1
+        if result_verification:
+            break
 
-            else:
-                print(
-                    f"'{user_answer}' is wrong answer ;(. "
-                    f"Correct answer was '{correct_answer}'."
-                    f"\nLet's try again, {name}!"
-                )
-                break
+        count -= 1
 
-        else:
-            print(f"Congratulations, {name}!")
+    else:
+        print(f"Congratulations, {name}!")

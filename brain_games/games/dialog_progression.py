@@ -1,44 +1,48 @@
 from brain_games.games.common import question
+from brain_games.games.solution_verification import verification
+import brain_games.config as config
+
 from random import randint
 
 import prompt
 
 
-def dialog(name, count=3):
+def dialog(name: str, count: int = config.count) -> None:
+    """
+    Function for dialog with player
+    in progression play
+    """
 
-        while count:
+    while count:
 
-            progression_numbers = [randint(0, 20)]
-            diff = randint(2, 10)
-            len_progression = randint(6, 10)
-            random_position_unshow = randint(0, len_progression)
-            
-            # brain
-            
-            for i in range(len_progression):
-                progression_numbers.append(progression_numbers[-1] + diff)
-            
-            correct_answer = progression_numbers[random_position_unshow]
-            progression_numbers[random_position_unshow] = '..'
-            
-            question(' '.join([str(n) for n in progression_numbers]))
+        progression_numbers = [randint(0, config.max_progr_num)]
+        diff = randint(config.min_diff, config.max_diff)
+        len_progression = randint(config.min_len, config.max_len)
+        random_position_unshow = randint(0, len_progression)
 
-            user_answer = prompt.integer('Your answer: ')
+        # brain
 
-            # проверка ответа
-            flag = correct_answer == user_answer
+        for i in range(len_progression):
+            progression_numbers.append(progression_numbers[-1] + diff)
 
-            if flag:
-                print("Correct!")
-                count -= 1
+        correct_answer = progression_numbers[random_position_unshow]
+        progression_numbers[random_position_unshow] = '..'
 
-            else:
-                print(
-                    f"'{user_answer}' is wrong answer ;(. "
-                    f"Correct answer was '{correct_answer}'."
-                    f"\nLet's try again, {name}!"
-                )
-                break
+        question(' '.join([str(n) for n in progression_numbers]))
 
-        else:
-            print(f"Congratulations, {name}!")
+        user_answer = prompt.integer('Your answer: ')
+
+        # проверка ответа
+        result_verification = verification(
+                                            name,
+                                            correct_answer,
+                                            user_answer
+                                            )
+
+        if result_verification:
+            break
+
+        count -= 1
+
+    else:
+        print(f"Congratulations, {name}!")
