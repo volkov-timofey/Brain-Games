@@ -16,7 +16,7 @@ def dialog(name: str, count: int = config.count) -> None:
 
     while count:
 
-        number = randint(0, config.max_value_prime)
+        number = randint(2, config.max_value_prime)
 
         question(number)
 
