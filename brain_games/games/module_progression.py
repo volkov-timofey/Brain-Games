@@ -16,7 +16,7 @@ def initialize_correct_answer(
     max_diff=MAX_DIFF,
     min_len=MIN_LEN,
     max_len=MAX_LEN
-                    ):
+):
     """
     Correct answet for even progression
     """
