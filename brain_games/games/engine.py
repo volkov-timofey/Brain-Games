@@ -1,12 +1,12 @@
 from brain_games.games.solution_verification import verification
 from brain_games.games.common import greetting
 from brain_games.games import (
-                                module_calc,
-                                module_even,
-                                module_gcd,
-                                module_prime,
-                                module_progression
-                                )
+    module_calc,
+    module_even,
+    module_gcd,
+    module_prime,
+    module_progression
+)
 
 import prompt
 
@@ -19,7 +19,7 @@ def engine(game: str, count: int = 3) -> None:
         'gcd': module_gcd,
         'prime': module_prime,
         'progression': module_progression,
-        }
+    }
 
     param_game = modules[game]
 

@@ -11,12 +11,12 @@ QUESTION = 'What number is missing in the progression?'
 
 
 def initialize_correct_answer(
-                            max_progr_num=MAX_PROGR_NUM,
-                            min_diff=MIN_DIFF,
-                            max_diff=MAX_DIFF,
-                            min_len=MIN_LEN,
-                            max_len=MAX_LEN
-                                            ):
+    max_progr_num=MAX_PROGR_NUM,
+    min_diff=MIN_DIFF,
+    max_diff=MAX_DIFF,
+    min_len=MIN_LEN,
+    max_len=MAX_LEN
+                    ):
     """
     Correct answet for even progression
     """
