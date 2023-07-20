@@ -7,7 +7,7 @@ MAX_DIFF = 10
 MIN_DIFF = 2
 MAX_LEN = 10
 MIN_LEN = 6
-QUESTION = 'Answer "yes" if given number is prime. Otherwise answer "no".'
+QUESTION = 'What number is missing in the progression?'
 
 
 def initialize_correct_answer(
