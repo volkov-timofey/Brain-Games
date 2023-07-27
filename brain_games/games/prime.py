@@ -1,12 +1,12 @@
-from brain_games.games.common import question
 from random import randint
 
 
+MIN_VALUE_PRIME = 2
 MAX_VALUE_PRIME = 50
 QUESTION = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
 
-def simple_number(num: int) -> bool:
+def prime_number(num: int) -> bool:
     """
     returns a flag of simplicity
     """
@@ -23,11 +23,11 @@ def simple_number(num: int) -> bool:
         return True
 
 
-def initialize_correct_answer(max_value_prime=MAX_VALUE_PRIME):
+def initialize_correct_answer():
     """
     Correct answet for even prime
     """
-    number = randint(2, max_value_prime)
-    question(number)
+    number = randint(MIN_VALUE_PRIME, MAX_VALUE_PRIME)
+    print(f'Question: {number}')
 
-    return "yes" if simple_number(number) else "no"
+    return 'yes' if prime_number(number) else 'no'

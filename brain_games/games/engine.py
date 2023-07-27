@@ -1,43 +1,27 @@
-from brain_games.games.solution_verification import verification
 from brain_games.games.common import greetting
-from brain_games.games import (
-    module_calc,
-    module_even,
-    module_gcd,
-    module_prime,
-    module_progression
-)
 
 import prompt
 
 
-def engine(game: str, count: int = 3) -> None:
+ROUNDS_COUNT = 3
 
-    modules = {
-        'calc': module_calc,
-        'even': module_even,
-        'gcd': module_gcd,
-        'prime': module_prime,
-        'progression': module_progression,
-    }
 
-    param_game = modules[game]
+def engine(module) -> None:
 
     # greetting
 
     name = prompt.string('May I have your name? ')
     greetting(name)
-    print(param_game.QUESTION)
+    print(module.QUESTION)
+
+    global ROUNDS_COUNT
 
     # questions
-    while count:
+    while ROUNDS_COUNT:
 
-        correct_answer = param_game.initialize_correct_answer()
+        correct_answer = module.initialize_correct_answer()
 
-        if game in ['prime', 'even']:
-            user_answer = prompt.string('Your answer: ')
-        else:
-            user_answer = prompt.integer('Your answer: ')
+        user_answer = prompt.string('Your answer: ')
 
         # проверка ответа
         result_verification = verification(
@@ -49,7 +33,26 @@ def engine(game: str, count: int = 3) -> None:
         if result_verification:
             break
 
-        count -= 1
+        ROUNDS_COUNT -= 1
 
     else:
-        print(f"Congratulations, {name}!")
+        print(f'Congratulations, {name}!')
+
+
+def verification(name: str, correct_answer, user_answer) -> None:
+    """
+    Verification user's answer
+    """
+
+    flag = str(correct_answer) == user_answer
+
+    if flag:
+        print('Correct!')
+
+    else:
+        print(
+            f'{user_answer} is wrong answer ;(. '
+            f'Correct answer was {correct_answer}.'
+            f"\nLet's try again, {name}!"
+        )
+        return True
