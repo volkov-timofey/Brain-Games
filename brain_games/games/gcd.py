@@ -12,7 +12,9 @@ def initialize_correct_answer():
     """
     Correct answet for even gcd
     """
-    number1, number2 = [randint(MIN_VALUE_GCD, MAX_VALUE_GCD) for _ in range(2)]
-    print(f'Question: {number1} {number2}')
+    number1 = randint(MIN_VALUE_GCD, MAX_VALUE_GCD)
+    number2 = randint(MIN_VALUE_GCD, MAX_VALUE_GCD)
 
-    return math.gcd(number1, number2)
+    question = f'{number1} {number2}'
+
+    return (question, math.gcd(number1, number2))

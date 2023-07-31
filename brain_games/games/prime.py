@@ -6,21 +6,23 @@ MAX_VALUE_PRIME = 50
 QUESTION = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
 
-def prime_number(num: int) -> bool:
+def is_prime(num: int) -> bool:
     """
-    returns a flag of simplicity
+    returns a flag of prime
     """
-
     divider = 2
+
+    if num < 2:
+        return 'no'
 
     while divider < num:
         if num % divider == 0:
-            return False
+            return 'no'
 
         divider += 1
 
     else:
-        return True
+        return 'yes'
 
 
 def initialize_correct_answer():
@@ -28,6 +30,5 @@ def initialize_correct_answer():
     Correct answet for even prime
     """
     number = randint(MIN_VALUE_PRIME, MAX_VALUE_PRIME)
-    print(f'Question: {number}')
 
-    return 'yes' if prime_number(number) else 'no'
+    return (number, is_prime(number))

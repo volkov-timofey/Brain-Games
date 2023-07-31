@@ -10,9 +10,8 @@ def initialize_correct_answer():
     """
     Correct answet for calc game
     """
-    number1, number2 = [
-        randint(MIN_VALUE_CALC, MAX_VALUE_CALC) for _ in range(2)
-    ]
+    number1 = randint(MIN_VALUE_CALC, MAX_VALUE_CALC)
+    number2 = randint(MIN_VALUE_CALC, MAX_VALUE_CALC)
 
     actions = {
         '*': number1 * number2,
@@ -21,6 +20,6 @@ def initialize_correct_answer():
     }
 
     operation = choice('+-*')
-    print(f'Question: {number1} {operation} {number2}')
+    question = f'{number1} {operation} {number2}'
 
-    return actions[operation]
+    return (question, actions[operation])

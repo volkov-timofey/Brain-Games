@@ -29,6 +29,6 @@ def initialize_correct_answer():
     correct_answer = progression_numbers[random_position_unshow]
     progression_numbers[random_position_unshow] = '..'
 
-    print(f"Question: {' '.join([str(n) for n in progression_numbers])}")
+    question = f"{' '.join([str(n) for n in progression_numbers])}"
 
-    return correct_answer
+    return (question, correct_answer)
