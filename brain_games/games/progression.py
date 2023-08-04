@@ -1,7 +1,7 @@
 from random import randint
 
 
-ZERO_NUM = 0
+UNSHOW_START = 0
 MIN_PROGR_NUM = 0
 MAX_PROGR_NUM = 20
 MAX_DIFF = 10
@@ -19,10 +19,11 @@ def initialize_correct_answer():
     progression_numbers = [randint(MIN_PROGR_NUM, MAX_PROGR_NUM)]
     diff = randint(MIN_DIFF, MAX_DIFF)
     len_progression = randint(MIN_LEN, MAX_LEN)
-    random_position_unshow = randint(ZERO_NUM, len_progression)
+
+    # len_progression is variable, than UNSHOW_END I didn't use
+    random_position_unshow = randint(UNSHOW_START, len_progression)
 
     # brain
-
     for i in range(len_progression):
         progression_numbers.append(progression_numbers[-1] + diff)
 

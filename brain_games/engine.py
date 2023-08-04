@@ -25,10 +25,10 @@ def initialize_game(module) -> None:
 
         user_answer = prompt.string('Your answer: ')
 
-        # проверка ответа
-        flag = str(correct_answer) == user_answer
+        # check an answer
+        is_answer_correct = str(correct_answer) == user_answer
 
-        if flag:
+        if is_answer_correct:
             print('Correct!')
 
         else:

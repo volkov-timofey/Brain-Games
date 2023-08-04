@@ -17,12 +17,12 @@ def is_prime(num: int) -> bool:
 
     while divider < num:
         if num % divider == 0:
-            return 'no'
+            return False
 
         divider += 1
 
     else:
-        return 'yes'
+        return True
 
 
 def initialize_correct_answer():
@@ -31,4 +31,7 @@ def initialize_correct_answer():
     """
     number = randint(MIN_VALUE_PRIME, MAX_VALUE_PRIME)
 
-    return (number, is_prime(number))
+    return (
+        number,
+        'yes' if is_prime(number) else 'no'
+    )

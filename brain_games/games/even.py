@@ -10,7 +10,7 @@ def is_even(number: int) -> str:
     """
     check for even
     """
-    return 'yes' if number % 2 == 0 else 'no'
+    return number % 2 == 0
 
 
 def initialize_correct_answer():
@@ -19,4 +19,7 @@ def initialize_correct_answer():
     """
     number = randint(MIN_VALUE_EVEN, MAX_VALUE_EVEN)
 
-    return (number, is_even(number))
+    return (
+        number,
+        'yes' if is_even(number) else 'no'
+    )
