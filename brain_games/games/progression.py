@@ -22,7 +22,7 @@ def initialize_correct_answer():
     end_number = begin_number + (len_progression * step)
 
     # len_progression is variable, than UNSHOW_END I didn't use
-    random_position_unshow = randint(UNSHOW_START, len_progression-1)
+    random_position_unshow = randint(UNSHOW_START, len_progression - 1)
 
     # brain
     progression_numbers = [num for num in range(begin_number, end_number, step)]
