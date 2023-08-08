@@ -1,20 +1,18 @@
-from brain_games.common import greetting
-
 import prompt
 
 
 ROUNDS_COUNT = 3
 
 
-def initialize_game(module) -> None:
+# комментрий от 31.07 "название функции должно быть глаголом"
+def game_module(module) -> None:
 
     # greetting
 
     name = prompt.string('May I have your name? ')
-    greetting(name)
+    print('Welcome to the Brain Games!')
+    print(f'Hello, {name}!')
     print(module.QUESTION)
-
-    global ROUNDS_COUNT
 
     # questions
     for i in range(ROUNDS_COUNT):

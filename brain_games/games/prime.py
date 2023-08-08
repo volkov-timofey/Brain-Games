@@ -13,7 +13,7 @@ def is_prime(num: int) -> bool:
     divider = 2
 
     if num < 2:
-        return 'no'
+        return False
 
     while divider < num:
         if num % divider == 0:

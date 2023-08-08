@@ -6,7 +6,7 @@ MAX_VALUE_EVEN = 500
 QUESTION = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 
-def is_even(number: int) -> str:
+def is_even(number: int) -> bool:
     """
     check for even
     """

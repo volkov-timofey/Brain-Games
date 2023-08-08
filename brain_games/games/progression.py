@@ -16,20 +16,20 @@ def initialize_correct_answer():
     Correct answet for even progression
     """
 
-    progression_numbers = [randint(MIN_PROGR_NUM, MAX_PROGR_NUM)]
-    diff = randint(MIN_DIFF, MAX_DIFF)
+    step = randint(MIN_DIFF, MAX_DIFF)
     len_progression = randint(MIN_LEN, MAX_LEN)
+    begin_number = randint(MIN_PROGR_NUM, MAX_PROGR_NUM)
+    end_number = begin_number + (len_progression * step)
 
     # len_progression is variable, than UNSHOW_END I didn't use
-    random_position_unshow = randint(UNSHOW_START, len_progression)
+    random_position_unshow = randint(UNSHOW_START, len_progression-1)
 
     # brain
-    for i in range(len_progression):
-        progression_numbers.append(progression_numbers[-1] + diff)
+    progression_numbers = [num for num in range(begin_number, end_number, step)]
 
     correct_answer = progression_numbers[random_position_unshow]
     progression_numbers[random_position_unshow] = '..'
 
-    question = f"{' '.join([str(n) for n in progression_numbers])}"
+    question = ' '.join([str(n) for n in progression_numbers])
 
     return (question, correct_answer)
