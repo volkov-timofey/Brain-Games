@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
-from brain_games.engine import game_module
+from brain_games.engine import initialize_game
 import brain_games.games.prime as prime
 
 
 def main():
 
-    game_module(prime)
+    initialize_game(prime)
 
 
 if __name__ == '__main__':
