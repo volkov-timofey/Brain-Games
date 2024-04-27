@@ -10,7 +10,7 @@ Make sure you are running at least Python 3.10.0
 Clone the repository and install manually:
 
 ```bash
-$ git clone https://github.com/volkov-timofey/python-project-49.git
+$ git clone https://github.com/volkov-timofey/Brain-Games.git
 $ cd python-project-49
 $ make full # build, publish in pip, package-install
 ```
