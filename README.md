@@ -11,7 +11,7 @@ Clone the repository and install manually:
 
 ```bash
 $ git clone https://github.com/volkov-timofey/Brain-Games.git
-$ cd python-project-49
+$ cd Brain-Games
 $ make full # build, publish in pip, package-install
 ```
 
